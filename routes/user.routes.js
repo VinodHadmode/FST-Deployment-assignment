@@ -13,9 +13,9 @@ userRouter.post("/register", async (req, res) => {
             if (hash) {
                 const user = new UserModel({ name, email, pass: hash })
                 await user.save()
-                res.send({ msg: "New user has been added" })
+                res.json({ msg: "New user has been added" })
             } else {
-                res.send(err)
+                res.json({err:err})
             }
         })
 
